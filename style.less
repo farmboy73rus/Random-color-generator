@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+@font-size: 84px;
+@border-radius: 30px;
+@light-color: #fff;
+@middle-color: #9c9c9c;
+@box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+@transition-cubic: all .6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #F0C808;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  transition: @transition-cubic;
+  position: relative;
+}
+
+.color-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__hex {
+    display: block;
+    font-size: @font-size;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 40px;
+    color: @light-color;
+  }
+  
+  &__btn{
+    font-family: inherit;
+    font-size: 24px;
+    color: @light-color;
+    background-image: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  111%);
+    transition: 0.5s;
+    background-size: 200% auto;
+    outline: none;
+    border: none;
+    border-radius: 16px;
+    box-shadow: rgba(149, 157, 165, 0.6) 0px 8px 24px;
+    padding: 16px 56px;
+    cursor: pointer;
+    &:hover {
+      background-size: 100% auto;
+    }
+    &:active {
+      transform: translateY(6px);
+      box-shadow: none;
+    }
+  }
+}
+
+.popup {
+  opacity: 0;
+  visibility: hidden;
+  max-width: 320px;
+  height: 0;
+  padding: 0;
+  white-space: nowrap;
+  background-color: @light-color;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -100%;
+  box-shadow: @box-shadow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  color: @middle-color;
+
+  &.active{
+    opacity: 1;
+    visibility: visible;
+    min-height: 80px;
+    height: auto;
+    padding: 0 24px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    top: 10px;
+  }
+}
